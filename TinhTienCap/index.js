@@ -2,7 +2,6 @@ function tinhTienCap() {
 
     const maKhachHang = document.getElementById("maKhachHang").value;
     const loaiKhachHang = document.getElementById("loaiKhachHang").value;
-    const soKetNoi  = parseInt(document.getElementById("soKetNoi").value);
     const soKenhCaoCap = parseInt(document.getElementById("soKenhCaoCap").value); 
 
 
@@ -23,13 +22,6 @@ function tinhTienCap() {
     document.getElementById("ketQua").innerHTML = `
       <h2>Kết quả tính tiền cáp</h2>
       <p>Mã khách hàng: ${maKhachHang}</p>
-      <p>Loại khách hàng: ${loaiKhachHang}</p>
       <p>Tổng tiền: ${tongTien.toFixed(2)} $</p>
     `;
 }
-
-
-document.getElementById("loaiKhachHang").addEventListener("change", function() {
-    const soKetNoiInput = document.getElementById("soKetNoi");
-    soKetNoiInput.disabled = this.value === "nhaDan";
-});

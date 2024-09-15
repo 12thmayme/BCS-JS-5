@@ -11,46 +11,63 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 </head>
 
-<body>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-    <h1>Quản lý tuyển sinh</h1>
-
-    <label for="diemChuan">Điểm chuẩn:</label>
-    <input type="number" id="diemChuan"><br>
-
-    <label for="diemMon1">Diem mon 1</label>
-    <input type="number" id="diemMon1"><br>
-
-    <label for="diemMon1">Diem mon 2</label>
-    <input type="number" id="diemMon2"><br>
-
-    <label for="diemMon3">Điểm môn 3:</label>
-    <input type="number" id="diemMon3"><br>
-
-    <label for="doiTuong">Đối tượng:</label>
+    <div class="container mx-auto max-w-lg">
+        <h1 class="text-2xl font-bold text-center mb-6 text-gray-800">Quản Lý Tuyển Sinh</h1>
 
 
-    <label for="khuVuc">Khu vực:</label>
-    <select id="khuVuc">
-    <option value="A">A</option>   
+        <div class="w-full mb-4 md:mb-0">
+            <label for="diemChuan" class="block text-gray-700 font-medium mb-2">Điểm Chuẩn</label>
+            <input type="number" id="diemChuan" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded" placeholder="Nhập điểm chuẩn">
+        </div>
 
-    <option value="B">B</option>
-    <option value="C">C</option>   
+        <div class="w-full mb-4 md:mb-0">
+            <label for="diemMon1" class="block text-gray-700 font-medium mb-2">Điểm Môn 1</label>
+            <input type="number" id="diemMon1" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded" placeholder="Nhập điểm môn 1">
+        </div>
 
-  </select><br>
+        <div class="w-full mb-4 md:mb-0">
+            <label for="diemMon2" class="block text-gray-700 font-medium mb-2">Điểm Môn 2</label>
+            <input type="number" id="diemMon2" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded" placeholder="Nhập điểm môn 2">
+        </div>
 
-    <select id="doiTuong">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>   
-    
-      </select><br>
-    <button id="btn">Tinh Ket Qua</button>
-    <p id="ketQua"></p>
+        <div class="w-full mb-4 md:mb-0">
+            <label for="diemMon3" class="block text-gray-700 font-medium mb-2">Điểm Môn 3</label>
+            <input type="number" id="diemMon3" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded" placeholder="Nhập điểm môn 3">
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <script src="./index.js"></script>
+        <div class="w-full mb-4 md:mb-0">
+            <label for="khuVuc" class="block text-gray-700 font-medium mb-2">Khu Vực</label>
+            <select id="khuVuc" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="X">Không thuộc khu vực ưu tiên</option>
+            </select>
+        </div>
+
+        <div class="w-full mb-4 md:mb-0">
+            <label for="doiTuong" class="block text-gray-700 font-medium mb-2">Đối Tượng</label>
+            <select id="doiTuong" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="0">Không thuộc đối tượng ưu tiên</option>
+            </select>
+        </div>
+    </div>
+
+
+    <button onclick="tinhDiem()" class="w-full bg-indigo-600 text-black justify-content-center font-bold py-3 rounded">Tính Điểm</button>
+
+
+    <div class="result mt-6 p-4 bg-gray-50 text-gray-700 rounded-md" id="result"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js " integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js " integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+ " crossorigin="anonymous "></script>
+    <script src="./index.js "></script>
 </body>
 
 </html>
